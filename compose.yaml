@@ -11,6 +11,13 @@ services:
       - network1
     deploy:
       replicas: 2
+      resources:
+        reservations:
+          memory: 100M
+          cpus: "0.25"
+        limits:
+          memory: 200M
+          cpus: "0.4"
 
   auth_service:
     image: vamsi01/vamsi_repo:auth
@@ -20,6 +27,13 @@ services:
       - network1
     deploy:
       replicas: 1
+      resources:
+        reservations:
+          memory: 100M
+          cpus: "0.25"
+        limits:
+          memory: 200M
+          cpus: "0.4"
 
   book_service:
     image: vamsi01/vamsi_repo:book
@@ -29,6 +43,13 @@ services:
       - network1
     deploy:
       replicas: 1
+      resources:
+        reservations:
+          memory: 100M
+          cpus: "0.25"
+        limits:
+          memory: 200M
+          cpus: "0.4"
 
   borrow_service:
     image: vamsi01/vamsi_repo:borrow
@@ -38,6 +59,13 @@ services:
       - network1
     deploy:
       replicas: 1
+      resources:
+        reservations:
+          memory: 100M
+          cpus: "0.25"
+        limits:
+          memory: 200M
+          cpus: "0.4"
 
   frontend:
     image: vamsi01/vamsi_repo:frontend
@@ -47,6 +75,13 @@ services:
       - network1
     deploy:
       replicas: 1
+      resources:
+        reservations:
+          memory: 100M
+          cpus: "0.25"
+        limits:
+          memory: 200M
+          cpus: "0.4"
 
 volumes:
   vol1:
