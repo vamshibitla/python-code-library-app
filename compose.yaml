@@ -1,0 +1,52 @@
+---
+services:
+  db:
+    image: vamsi01/vamsi_repo:database
+    ports:
+     - 3306:3306
+     volumes:
+      - vol1:/var/lib/jenkins
+      networks:
+       - network1
+      deploy:
+        replicas: 2
+  auth_service:
+    image: vamsi01/vamsi_repo:auth
+    ports:
+     - 5001:5001
+    networks:
+      - network1
+    deploy:
+      replicas: 1
+  book_service:
+     image: vamsi01/vamsi_repo:book
+     ports:
+     - 5002:5002
+     networks:
+      - network1
+     deploy:
+       replicas: 1
+ borrow_service:
+    image: vamsi01/vamsi_repo:borrow
+    ports:
+     - 5003:5003
+    networks:
+     - network1
+    deploy:
+     replicas: 1
+
+ frontend:
+   image: vamsi01/vamsi_repo:frontend
+   ports:
+    - 5000:5000
+   networks:
+    - network1
+
+volumes:
+- vol1
+networks:
+  network1:
+    driver: overlay
+     
+     
+  
